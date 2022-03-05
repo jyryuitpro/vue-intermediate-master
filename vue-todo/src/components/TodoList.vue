@@ -1,9 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="todoItem in todoItems" v-bind:key="todoItem" class="shadow">
-        {{ todoItem}}
-        <span class="removeBtn" v-on:click="removeTodo">
+      <li v-for="(todoItem, index) in todoItems" v-bind:key="todoItem" class="shadow">
+        {{ todoItem }}
+        <span class="removeBtn" v-on:click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
@@ -20,8 +20,11 @@ export default {
     }
   },
   methods: {
-    removeTodo: function () {
-
+    removeTodo: function (todoItem, index) {
+      console.log(todoItem, index);
+      localStorage.removeItem(todoItem);
+      // splice: 원본 수정 O, slice: 원본 수정 X
+      this.todoItems.splice(index, 1);
     }
   },
   created: function () {
@@ -32,6 +35,7 @@ export default {
         }
       }
     }
+    console.log(this.todoItems);
   }
 }
 </script>
