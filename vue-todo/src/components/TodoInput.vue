@@ -17,8 +17,13 @@ export default {
   },
   methods: {
     addTodo: function () {
-      localStorage.setItem(this.newTodoItem, this.newTodoItem);
-      this.clearInput();
+      if (this.newTodoItem !== '') {
+        var obj = { completed: false, item: this.newTodoItem };
+        // JSON.stringify: 자바스크립트 객체를 string으로 변환해주는 api
+        // localStorage.setItem(this.newTodoItem, obj);
+        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        this.clearInput();
+      }
     },
     clearInput: function () {
       this.newTodoItem = '';
