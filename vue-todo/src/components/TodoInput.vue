@@ -18,10 +18,8 @@ export default {
   methods: {
     addTodo: function () {
       if (this.newTodoItem !== '') {
-        var obj = { completed: false, item: this.newTodoItem };
-        // JSON.stringify: 자바스크립트 객체를 string으로 변환해주는 api
-        // localStorage.setItem(this.newTodoItem, obj);
-        localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
+        // this.$emit('이벤트 이름', 인자1, 인자2, ...);
+        this.$emit('addTodoItem', this.newTodoItem);
         this.clearInput();
       }
     },
