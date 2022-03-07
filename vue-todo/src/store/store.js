@@ -27,6 +27,11 @@ export const store = new Vuex.Store({
         // headerText: 'TODO it!',
         todoItems: storage.fetch()
     },
+    getters: {
+      storedTodoItems(state) {
+          return state.todoItems;
+      }
+    },
     mutations: {
         addOneItem(state, todoItem) {
             // console.log('received');
