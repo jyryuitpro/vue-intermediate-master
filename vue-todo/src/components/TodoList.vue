@@ -19,9 +19,7 @@ export default {
   methods: {
     removeTodo: function (todoItem, index) {
       console.log(todoItem, index);
-      localStorage.removeItem(todoItem);
-      // splice: 원본 수정 O, slice: 원본 수정 X
-      this.todoItems.splice(index, 1);
+      this.$emit('removeTodoItem', todoItem, index);
     },
     toggleComplete: function (todoItem, index) {
       console.log(todoItem, index);
