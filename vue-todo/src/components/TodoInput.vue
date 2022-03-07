@@ -45,7 +45,7 @@ export default {
     }
   },
   components: {
-    'ModalAlert': ModalAlert
+    ModalAlert
   }
 }
 </script>

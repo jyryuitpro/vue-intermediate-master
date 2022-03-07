@@ -59,10 +59,10 @@ export default {
     console.log(this.todoItems);
   },
   components: {
-    'TodoHeader': TodoHeader,
-    'TodoInput': TodoInput,
-    'TodoList': TodoList,
-    'TodoFooter': TodoFooter,
+    TodoHeader,
+    TodoInput,
+    TodoList,
+    TodoFooter,
   }
 }
 </script>
