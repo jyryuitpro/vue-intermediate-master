@@ -8,7 +8,7 @@
 export default {
   name: "TodoFooter",
   methods: {
-    clearTodo: function () {
+    clearTodo() {
       this.$emit('clearAllTodoItems');
     }
   }
