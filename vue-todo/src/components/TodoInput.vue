@@ -10,7 +10,11 @@
         you can use custom content here to overwrite
         default content
       -->
-      <h3 slot="header">경고!</h3>
+      <h3 slot="header">
+        경고!
+        <i class="closeModalAlertBtn fas fa-times" @click="showModal = false"></i>
+      </h3>
+      <div slot="body">아무것도 입력하지 않으셨습니다.</div>
     </ModalAlert>
   </div>
 </template>
@@ -70,5 +74,8 @@ input:focus {
 .addBtn {
   color: white;
   vertical-align: middle;
+}
+.closeModalAlertBtn {
+  color: #42b983;
 }
 </style>
