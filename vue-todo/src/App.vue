@@ -2,7 +2,8 @@
   <div id="app">
     <TodoHeader></TodoHeader>
 <!-- <TodoInput v-on:하위 컴포넌트에서 발생시킨 이벤트 이름="현재 컴포넌트의 메서드 명"></TodoInput> -->
-    <TodoInput v-on:addTodoItem="addOneItem"></TodoInput>
+<!-- <TodoInput v-on:addTodoItem="addOneItem"></TodoInput> -->
+    <TodoInput></TodoInput>
 <!-- <TodoList v-bind:내려보낼 프롭스 속성 이름="현재 위치의 컴포넌트 데이터 속성"></TodoList> -->
     <TodoList v-bind:propsdata="todoItems" v-on:removeTodoItem="removeOneItem" v-on:toggleTodoItem="toggleOneItem"></TodoList>
     <TodoFooter v-on:clearAllTodoItems="clearAllItems"></TodoFooter>
@@ -23,13 +24,13 @@ export default {
     }
   },
   methods: {
-    addOneItem(todoItem) {
-      const obj = { completed: false, item: todoItem };
+    // addOneItem(todoItem) {
+    //   const obj = { completed: false, item: todoItem };
       // JSON.stringify: 자바스크립트 객체를 string으로 변환해주는 api
       // localStorage.setItem(this.newTodoItem, obj);
-      localStorage.setItem(todoItem, JSON.stringify(obj));
-      this.todoItems.push(obj);
-    },
+      // localStorage.setItem(todoItem, JSON.stringify(obj));
+      // this.todoItems.push(obj);
+    // },
     removeOneItem(todoItem, index) {
       localStorage.removeItem(todoItem.item);
       // splice: 원본 수정 O, slice: 원본 수정 X
@@ -47,6 +48,17 @@ export default {
       this.todoItems = [];
     }
   },
+  // created() {
+  //   if (localStorage.length > 0) {
+  //     for (let i = 0; i < localStorage.length; i++) {
+  //       if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
+          // JSON.parse: string을 객체로 변환해주는 api
+          // this.todoItems.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
+        // }
+      // }
+    // }
+    // console.log(this.todoItems);
+  // },
   components: {
     TodoHeader,
     TodoInput,

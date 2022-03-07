@@ -26,5 +26,15 @@ export const store = new Vuex.Store({
     state: {
         // headerText: 'TODO it!',
         todoItems: storage.fetch()
+    },
+    mutations: {
+        addOneItem(state, todoItem) {
+            // console.log('received');
+            const obj = { completed: false, item: todoItem };
+            // JSON.stringify: 자바스크립트 객체를 string으로 변환해주는 api
+            // localStorage.setItem(this.newTodoItem, obj);
+            localStorage.setItem(todoItem, JSON.stringify(obj));
+            state.todoItems.push(obj);
+        }
     }
 });
